@@ -1,0 +1,699 @@
+body{
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    
+    background-color: #FBF3E4;
+}
+
+strong{
+    font-weight: normal;
+}
+
+/*Propriété de l'entête*/
+
+.logo{
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+.imagetype{
+    width: 140px;
+    height: 140px;
+    float: right;
+}
+header{
+    height: 160px;
+}
+h1{
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+/*Menu avec les boutons en float left*/
+
+nav{
+    width: 100%;
+    height: 80px;
+}
+nav ul{
+    margin: 0px;
+    padding: 0px;
+}
+nav li{
+    list-style-type: none;
+    float: left;
+    width: 160px;
+    height: 50px;
+    box-shadow: 0px 0px 5px black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* Pour faire en sorte que l'écriture dans les boutons soit centrée et la couleur des boutons*/
+.bleu{
+    background-color: #23A3D9;
+}
+.vert{
+    background-color: #26A648;
+}
+#sommes{
+    line-height: 50px;
+}
+#ressourcerie{
+    line-height: 25px;
+}
+#projet{
+    line-height: 25px;
+    }
+#evenement{
+    line-height: 50px;
+}
+#contact{
+    line-height: 25px;
+}
+
+/*Pour faire changer la couleur des boutons lors du survol de la souris*/
+
+.bleu:hover{
+    background-color: #26A648;
+}
+.vert:hover{
+    background-color: #23A3D9;
+}
+
+/* Pour redonner un contenu au div car tout le contenu (les boutons) sont en float*/
+
+.table{
+    display: table;
+    margin: 0 auto;
+}
+
+/*Propriété générale corps de texte toute page*/
+    
+    /* pour alterner les premières lettres des paragraphes en bleu et vert*/
+    
+.odd::first-letter{
+    font-size: 25px;
+    color: #23A3D9
+}
+
+.even::first-letter{
+    font-size: 25px;
+    color: #26A648;
+}
+
+    /*fin alternance lettre*/
+
+article h1{
+    padding-top: 0px;
+}
+article{
+    padding: 0px 50px 30px 50px;
+    text-align: justify;
+}
+
+/*Propriété image page SOMMES*/
+
+.logozd{
+    float: left;
+    width: 200px;
+    border: 2px ridge #23A3D9;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+}
+.identite{
+    width: 100%;
+    margin: 0px 0px 50px 0px;
+    padding: 0;
+    text-align: justify;
+}
+.photoid{
+    float: left;
+    margin-right: 20px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 5px;
+}
+.verte{
+    border: 2px ridge #26A648;
+}
+.bleue{
+    border: 2px ridge #23A3D9;
+}
+.description{
+    font-style: italic;
+}
+
+/*Propriété image page RESSOURCERIE*/
+
+.explication{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+#marche{
+    width: 200px;
+    padding: 0px;
+    margin: 0 auto;
+}
+.but{
+    list-style-type: none;
+    padding: 0px 0px 10px 0px;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 0px 5px black;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+}
+
+/*Propriété corps de texte page PROJET*/
+
+#listebut{
+    padding: 0px 10px 10px 10px;
+    border-radius: 5px;
+    text-align: left;
+    box-shadow: 0px 0px 5px black;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+}
+article > ul > .butprojet{
+    list-style-type: disc;
+    list-style-position: inside;
+    
+}
+.changevision{
+    font-weight: bold;
+}
+
+/*Propriété de la page OUVERTURE*/
+
+.tableauouverture{
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.celluleheadouverture{
+    padding: 5px;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.celluleouverture{
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+    
+}
+
+.doc .justify{
+    text-align: justify;
+}
+
+
+/*Propriété vidéo page EVENEMENT*/
+
+
+
+.bordsarrondis{
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px black;
+}
+
+.tailleimage{
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+    
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#dateevenement{
+
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+
+}
+
+#dateevenement>div{
+  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+article .evenement{
+    margin: 10px 10px;
+    padding: 0px 10px;
+}
+
+.collecte{
+    color: #23A3D9;
+    font-size: larger;
+}
+
+.vente{
+    color: #26A648;
+    font-size: larger;
+}
+
+.collecte > p{
+    color: black;
+    font-size: small;
+}
+
+.collecte > ul{
+    padding: 0px;
+    margin-bottom: 5px;
+    list-style-position: inside;
+    list-style-type: disc;
+    color: black;
+    font-size: small;
+}
+
+.vente > ul{
+    padding: 0px;
+    margin-bottom: 5px;
+    list-style-position: inside;
+    list-style-type: disc;
+    color: black;
+    font-size: small;
+}
+
+.programme{
+    text-align: left;
+}
+
+iframe{
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+}
+
+#frame{
+    width: 400px;
+    height: 250px;
+}
+
+.manifestation{
+    
+    box-shadow: 0px 0px 15px black;
+    border-radius: 5px;
+    margin: 3% 2%;
+}
+
+.bordurebleue{
+    border: 5px groove #23A3D9;
+}
+
+.bordureverte{
+    border: 5px groove #26A648;
+}
+
+.listelogo{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.logos{
+    margin: 0px;
+}
+
+/*Propriété corps de texte page CONTACT*/
+
+.doc ul{
+    padding: 0px;
+    width: 300px;
+    margin: 0px auto 75px auto;
+}
+.doc li{
+    display: block;
+    padding: 0px;
+    list-style-type: none;
+    width: 160px;
+    height: 50px;
+    box-shadow: 0px 0px 5px black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.doc a{
+    text-decoration: none;
+    color: white;
+}
+#adhesion{
+    width: 100%;
+    line-height: 50px;
+    background-color: #26A648;
+}
+#statuts{
+    width: 100%;
+    line-height: 50px;
+    background-color: #23A3D9;
+}
+
+/* Propriétés du formulaire de la page Contact*/
+
+.doc p{
+    text-align: center;
+}
+
+fieldset{
+    background-color: #23A3D9;
+    width: 320px;
+    padding: 10px;
+    margin: 0px auto;
+    border-radius: 5px;
+}
+
+legend{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+input{
+    width: 300px;
+    height: 20px
+}
+
+textarea{
+    width: 300px;
+    height: 100px;
+}
+
+label{
+    display: block;
+    width: 200px;
+}
+
+.actu{
+    padding: 10px 10px 10px 10px;
+    display: block;
+    width: 65%;
+    background-color: #F4F6AE;
+    margin: 10px auto;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]{
+    border-radius: 2px;
+    margin:0px;
+    padding:0px;
+    display:block;
+    position: absolute;
+    left: 10%;
+   
+}
+
+input[type="submit"]{
+    display: block;
+    position: relative;
+    margin: 30px auto;
+    width: 100px;
+    height: 35px;
+    border : outset;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #26A648;
+}
+
+.boutonajout{
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    margin: 30px auto;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    border : outset;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #26A648;
+}
+input[type="submit"]:hover, .boutonajout:hover{
+    background-color: #23A3D9;
+}
+
+/* Propriétés du pied de page*/
+
+footer{
+    background-color: #23A3D9;
+    border-top: 1px solid black;
+}
+footer p{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    
+}
+footer .copyright{
+    width: 100%;
+    font-size: 10px;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    display: inline;
+    margin: 0px auto;
+    width: 100%;
+}
+.facebook{
+    display: block;
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+}
+
+
+
+/*Pour adapter la visualisation à une plus petite fenêtre, 3 niveaux plus petits 930px et 700px et 450px pour les mobiles*/
+
+@media screen and (max-width: 930px){
+    h1{
+        font-size: 28px;
+        height: 75px;
+    }
+    header{
+        height: 135px;
+    }
+    .logo{
+        width: 125px;
+        height: 125px;
+    }
+    .imagetype{
+    width: 110px;
+    height: 120px;
+    }
+    nav li{
+        margin: 0px;
+        width: 115px;
+        height: 40px;
+        font-weight: normal;
+        font-size: 11px;
+    }
+    nav{
+    height: 60px;
+    }
+    #sommes{
+        line-height: 40px;
+    }
+    #ressourcerie{
+        line-height: 20px;
+    }
+    #projet{
+        line-height: 20px;
+    }
+    #evenement{
+        line-height: 40px;
+    }
+    #contact{
+        line-height: 20px;
+    }
+    footer p{
+        line-height: 20px;
+        font-size: 14px;
+    }
+    footer{
+    height: 75px;
+    }
+    .facebook{
+    height: 30px;
+    width: 30px;
+    }
+    
+}
+@media screen and (max-width: 700px){
+    h1{
+        font-size: 20px;
+        height: 50px;
+    }
+    header{
+        height: 110px;
+    }
+    .logo{
+        width: 100px;
+        height: 100px;
+    }
+    .imagetype{
+    width: 90px;
+    height: 90px;
+    }
+    nav li{
+        width: 75px;
+        height: 25px;
+        font-weight: normal;
+        font-size: 8px;
+    }
+    nav{
+    height: 40px;
+    }
+    #sommes{
+        line-height: 25px;
+    }
+    #ressourcerie{
+        line-height: 12px;
+    }
+    #projet{
+        line-height: 12px;
+    }
+    #evenement{
+        line-height: 25px;
+    }
+    #contact{
+        line-height: 12px;
+    }
+    footer p{
+        line-height: 50px;
+        font-size: 11px;
+    }
+    footer p{
+        line-height: 10px;
+        font-size: 11px;
+    }
+    footer{
+    height: 50px;
+    }
+    .facebook{
+    height: 20px;
+    width: 20px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    h1{
+        font-size: 20px;
+        height: 30px;
+        padding-top: 0px;
+    }
+    header{
+        height: 60px;
+       
+    }
+    .uneligne{
+        line-height: 60px;
+    }
+    .deuxlignes{
+        line-height: 30px;
+    }
+    .logo{
+        width: 55px;
+        height: 55px;
+    }
+    .imagetype{
+        width: 55px;
+        height: 55px;
+    }
+    nav li{
+        width: 54px;
+        height: 18px;
+        font-weight: normal;
+        font-size: 7px;
+        margin: 10px 2px;
+    }
+    nav{
+        height: 40px;
+    }
+    #dateevenement>div{
+    display: block;
+    }
+    #sommes{
+        line-height: 9px;
+    }
+    #ressourcerie{
+        line-height: 9px;
+    }
+    #projet{
+        line-height: 9px;
+    }
+    #evenement{
+        line-height: 18px;
+    }
+    #contact{
+        line-height: 18px;
+    }
+    footer p{
+        line-height: 50px;
+        font-size: 11px;
+    }
+    footer p{
+        line-height: 10px;
+        font-size: 11px;
+    }
+    footer{
+        height: 50px;
+    }
+    .facebook{
+        height: 20px;
+        width: 20px;
+    }
+    .logozd{
+        width: 80px;
+    }
+    #frame{
+    width: 300px;
+    height: 187px;
+    }
+    .espacementtop{
+        margin-top: 50px;
+    }
+}
+

@@ -1,0 +1,333 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Didact Gothic', sans-serif;
+    
+    background-color: #FBF3E4;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/*Propriété de l'entête*/
+
+header{
+    height: 130px;
+    margin-bottom: 20px;
+}
+.titre{
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    width: 600px;
+    display: block;
+    margin: 0px auto;
+    font-weight: bold;
+    line-height: 65px;
+}
+h2{
+    text-align: center;
+    width: 600px;
+    display: block;
+    margin: 0px auto;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.logo{
+    width: 120px;
+    float: left;
+}
+
+/*Mise en place de 2 div et une image au milieu, les 3 éléments définis en inline-block, avec un Z-index permettant la superposition des boutons sur l'image*/
+
+.left{
+    margin: 0;
+    padding: 0;
+    width: 256px;
+    Height: 52%;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    left: 0px;
+    z-index: 100;
+}
+.right{
+    margin: 0;
+    padding: 0;
+    width: 256px;
+    Height: 52%;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: 0px;
+    z-index: 100;
+}
+
+/*Définition des boutons*/
+
+.left p, .right p{
+    width: 160px;
+    height: 50px;
+    box-shadow: 0px 0px 5px black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/*Propriété de l'image*/
+
+.accueil{
+    position: relative;
+    left: 26%;
+    width: 47%;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 10;
+    padding: 10px;
+    border: 1px solid #CCC;
+    box-shadow: 0 0 17px #999;
+    background-color: #F3F3F3;
+}
+/*couleur des boutons*/
+
+.bleu{
+    background-color: #23A3D9;
+}
+.vert{
+    background-color: #26A648;
+}
+
+/*Disposition de tous les éléments au sein des div*/
+
+.droite{
+    position: absolute;
+    right: 90px;
+    
+}
+.gauche{
+    position: absolute;
+    left: 90px;
+
+}
+#sommes{
+    line-height: 50px;
+    top: 12%;
+}
+#ressourcerie{
+    line-height: 25px;
+    top: 36%;
+}
+#projet{
+    line-height: 25px;
+    top: 60%;
+}
+#evenement{
+    line-height: 50px;
+    top: 12%;
+}
+#contact{
+    line-height: 25px;
+    top: 36%;
+}
+#ouverture{
+    line-height: 25px;
+    top: 60%;
+}
+.picto{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+.question{
+    left: 35px;
+    top: 12%;
+
+}
+.famille{
+    left: 35px;
+    top: 36%;
+}
+.avancement{
+    left: 35px;
+    top: 60%;
+}
+.fete{
+    right: 35px;
+    top: 12%;
+}
+.contactez{
+    right: 35px;
+    top: 36%;
+}
+.ouverturez{
+    right: 35px;
+    top: 60%;
+}
+
+/*Propriété de la fenêtre actu*/
+
+.actu{
+    padding: 10px 10px;
+    width: 75%;
+    background-color: #F4F6AE;
+    margin: 40px auto;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+}
+
+.actu a{
+    color: red;
+}
+
+/*Pied de page*/
+
+footer{
+    height: 100px;
+    background-color: #23A3D9;
+}
+footer p{
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+}
+footer a{
+    margin: 0% 50%;
+}
+
+/*Pictogramme FB*/
+
+.facebook{
+    height: 40px;
+    width: 40px;
+}
+
+/*Pour faire changer la couleur des boutons lors du survol de la souris*/
+
+.bleu:hover{
+    background-color: #26A648;
+}
+.vert:hover{
+    background-color: #23A3D9;
+}
+
+
+/*Pour adapter la visualisation à une plus petite fenêtre, 2 niveaux plus petits 900px et 700px*/
+
+@media screen and (max-width: 900px){
+    .accueil{
+        left: 33%;
+        width: 30%;
+        top: 75px;
+        margin-bottom: 100px
+    }
+    
+}
+@media screen and (max-width: 700px){
+     
+    .accueil{
+        visibility: hidden;
+        margin-bottom: 150px;
+    }
+   
+    .left p, .right p{
+        width: 120px;
+        height: 40px;
+        font-weight: normal;
+    }
+    a{
+        font-size: 12px;
+    }
+    #sommes{
+    line-height: 40px;
+    }
+    #ressourcerie{
+    line-height: 20px;
+    }
+    #projet{
+    line-height: 20px;
+    }
+    #evenement{
+    line-height: 40px;
+    }
+    #contact{
+    line-height: 20px;
+    }
+    #ouverture{
+    line-height: 20px;
+    
+}
+}
+
+@media screen and (max-width: 480px){
+    .titre{
+    padding-top: 10px;
+    font-size: 25px;
+    text-align: center;
+    width: 300px;
+    display: block;
+    margin: 0px auto;
+    font-weight: bold;
+    line-height: 30px;
+}
+h2{
+    text-align: center;
+    width: 300px;
+    display: block;
+    margin: 0px auto;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 10px;
+}
+    header{
+        height: 60px;
+    }
+    .logo{
+        width: 55px;
+    }
+    
+    .accueil{
+        visibility: hidden;
+        margin-bottom: 0px;
+    }
+    .actu{
+        margin-top: 170px;
+    }
+    .left p, .right p{
+        width: 90px;
+        height: 30px;
+        font-weight: normal;
+    }
+    a{
+        font-size: 12px;
+    }
+    #sommes{
+    line-height: 15px;
+    }
+    #ressourcerie{
+    line-height: 15px;
+    }
+    #projet{
+    line-height: 15px;
+    }
+    #evenement{
+    line-height: 30px;
+    }
+    #contact{
+    line-height: 15px;
+    }
+    #ouverture{
+    line-height: 15px;
+    
+}
+    footer p{
+    line-height: 20px;
+    font-size: 15px;
+    }
+    .actu{
+        margin-top: 200px;
+    }
+}
+
