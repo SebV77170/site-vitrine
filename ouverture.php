@@ -57,11 +57,16 @@
                     
                 </tr>
         
-        <?php foreach($results as $v){
+        <?php 
+            
+            foreach($results as $v){
                 $datetimestart = new DateTime(''.$v['start'].'');
                 $datetimeend = new DateTime(''.$v['end'].'');
                 $date = $datetimestart->format('l-d-F-Y');
                 $datefrench = explode('-', $date);
+
+                $dimanche=new DateTime("2 july 2023 16:00");
+                
                 foreach($days as $k=>$v):
                     if($k==$datefrench[0]):
                         $datefrench[0]=$v;
@@ -75,7 +80,7 @@
                 $datefrench=implode(' ',$datefrench);
                 $heurestart = $datetimestart->format('G:i');
                 $heureend = $datetimeend->format('G:i');   
-                if($datetimeend>$datetoday AND $datetimeend<$datein2months):
+                if($datetimeend>$datetoday AND $datetimeend<$datein2months AND $datetimeend != $dimanche):
                         echo '<tr>
                         
                             <td class="celluleouverture">'.$datefrench.'</td>
