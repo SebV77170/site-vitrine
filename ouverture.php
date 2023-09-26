@@ -41,7 +41,7 @@
                 
                 $datetoday=new DateTime('now');
                 $datein2months=new DateTime('now + 2 months');
-                $sql = 'SELECT start, end FROM events WHERE cat_creneau = 0 ORDER by start ASC';
+                $sql = 'SELECT start, end FROM events WHERE cat_creneau = 0 AND public = 1 ORDER by start ASC';
                 $sth = $db->query($sql);
                 $results = $sth->fetchALL();
             ?>
@@ -53,8 +53,7 @@
                     <th class='celluleheadouverture'>Date</th>
                     <th class='celluleheadouverture'>Heure d'ouverture</th>
                     <th class='celluleheadouverture'>Heure de fermeture</th>
-
-                    
+                    <th class='celluleheadouverture'></th>
                 </tr>
         
         <?php 
@@ -64,8 +63,14 @@
                 $datetimeend = new DateTime(''.$v['end'].'');
                 $date = $datetimestart->format('l-d-F-Y');
                 $datefrench = explode('-', $date);
-
-                $dimanche=new DateTime("2 july 2023 16:00");
+                $semaine = $datetimestart->format('W');
+                $test = $semaine/2;
+                if(is_int($test)):
+                    $mess="Vente uniquement";
+                else:
+                    $mess="Vente + dépot";
+                endif;
+                
                 
                 foreach($days as $k=>$v):
                     if($k==$datefrench[0]):
@@ -80,13 +85,14 @@
                 $datefrench=implode(' ',$datefrench);
                 $heurestart = $datetimestart->format('G:i');
                 $heureend = $datetimeend->format('G:i');   
-                if($datetimeend>$datetoday AND $datetimeend<$datein2months AND $datetimeend != $dimanche):
+                if($datetimeend>$datetoday AND $datetimeend<$datein2months):
                         echo '<tr>
                         
                             <td class="celluleouverture">'.$datefrench.'</td>
                             <td class="celluleouverture">'.$heurestart.'</td>
                             <td class="celluleouverture">'.$heureend.'</td>
-                            
+                            <td class="celluleouverture">'.$mess.'</td>
+
                             
                           </tr>'  ;
                 endif;

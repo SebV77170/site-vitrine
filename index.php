@@ -25,10 +25,10 @@
         </div>
         <img class="accueil" src="image/PageAccueil2redim.gif" alt="dessin d'un arbre et d'un batiment representant la ressourcerie">
         <div class="right"> 
-            <a href="evenement.php"><p id="evenement" class="droite vert">Les évènements</p></a>
+            
             <a href="contact.php"><p id="contact" class="droite bleu">Contact, docs et adhésion</p></a>
             <a href="ouverture.php"><p id="ouverture" class="droite vert">Ouverture et informations</p></a>
-            <img class="picto fete" src="image/PictoFete.gif" alt="un oiseau qui fait la fete">
+            
             <img class="picto contactez" src="image/PictoContact.gif" alt="un oiseau au tel">
             <img class="picto ouverturez" src="image/PictoContact.gif" alt="un oiseau au tel">
         </div>
