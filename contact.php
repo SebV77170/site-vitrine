@@ -36,7 +36,7 @@
                         <option value="partenaire@ressourcebrie.fr">Un partenariat pour un atelier ou autre</option>
                         <option value="tresorier@ressourcebrie.fr">La trésorerie</option>
                         <option value="logistique@ressourcebrie.fr">Les aspects logistiques</option>
-                        <option value="ressourcebrie77@gmail.com">Toutes autres demandes</option>
+                        <option value="magasin@ressourcebrie.fr">Toutes autres demandes</option>
                     </select>
             
                     <label for="prenom">Prénom : </label>

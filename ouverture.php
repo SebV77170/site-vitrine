@@ -61,14 +61,21 @@
             foreach($results as $v){
                 $datetimestart = new DateTime(''.$v['start'].'');
                 $datetimeend = new DateTime(''.$v['end'].'');
+
+                //essai pour utiliser la fonction sub mais je n'ai pas réussi du coup, 17:30 est passé dans mess1 sans calcul
+                //$intervalle30min = new DateInterval('P30M');
+                //$datetimeend30min = $datetimeend->sub($intervalle30min);
+                
                 $date = $datetimestart->format('l-d-F-Y');
                 $datefrench = explode('-', $date);
                 $semaine = $datetimestart->format('W');
                 $test = $semaine/2;
                 if(is_int($test)):
                     $mess="Vente uniquement";
+                    $mess1="";
                 else:
                     $mess="Vente + dépot";
+                    $mess1="Limite Dépôt 17:30";
                 endif;
                 
                 
@@ -90,8 +97,9 @@
                         
                             <td class="celluleouverture">'.$datefrench.'</td>
                             <td class="celluleouverture">'.$heurestart.'</td>
-                            <td class="celluleouverture">'.$heureend.'</td>
+                            <td class="celluleouverture">'.$heureend.' - '.$mess1.'</td>
                             <td class="celluleouverture">'.$mess.'</td>
+                            
 
                             
                           </tr>'  ;
