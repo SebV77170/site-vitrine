@@ -48,6 +48,8 @@
             
             <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
             
+            <h1 class="alert">FERMETURE le 11 Novembre 2024</h1>
+            
             <table class='tableauouverture'>
                 <tr class='ligneouverture'>
                     <th class='celluleheadouverture'>Date</th>

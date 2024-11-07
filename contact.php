@@ -18,9 +18,8 @@
             <p class="even">Cliquez sur les liens suivants pour lire les documents :</p>
             <ul>
                 <a href="documents/statuts.pdf" target="_blank"><li id="statuts">Nos statuts</li></a>
-                <a href="documents/Appel_benevoles.pdf" target="_blank"><li id="adhesion">Appel bénévoles</li></a>
-                <a href="documents/Bulletin_annee_complete.pdf" target="_blank"><li id="statuts">Bulletin d'adhésion pour l'année 2023</li></a>
-                
+                <a href="documents/reglint.pdf" target="_blank"><li id="statuts">Notre règlement intérieur</li></a>
+
             </ul>
             
             <h1 id="formucontact">Formulaire de contact</h1>
@@ -64,20 +63,9 @@
             
             <h1 id="form_adhesion">Formulaire d'adhésion à l'association</h1>
             
-            <iframe id="iframe_assoconnect" src="https://ressource-brie.assoconnect.com/collect/description/263609-b-formulaire-d-adhesion-a-la-ressource-brie?iframe=1" width="75%" style="overflow: hidden; border: 0; max-height: none;" scrolling="no";">
-            </iframe>
-            <script>window.addEventListener("message", function(event) {if(event.data.action === "iframe.height" && event.origin === "https://ressource-brie.assoconnect.com"){document.getElementById("iframe_assoconnect").height = event.data.height;}});
-            </script>
-            <style>#iframe_assoconnect{border: 0}
-            </style>
-            
-            
-            
-            
-            
-            
-            
-            
+            <iframe id="iframe_assoconnect" src="https://ressource-brie.assoconnect.com/collect/description/461280-m-adhesion-2024-2025?iframe=1" width="100%" style="overflow: hidden; border: 0; max-height: none;" scrolling="no" onload="window.location.href='#iframe_assoconnect'"></iframe>
+            <script>window.addEventListener("message", function(event) {if(event.data.action === "iframe.height" && (event.origin === "https://ressource-brie.assoconnect.com" || event.origin === "https://pay.assoconnect.com")){document.getElementById("iframe_assoconnect").height = event.data.height;}});</script>
+            <style>#iframe_assoconnect{border: 0}</style>   
             
         </article>
         <?php
