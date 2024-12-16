@@ -48,7 +48,7 @@
             
             <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
             
-            <h1 class="alert">FERMETURE le 11 Novembre 2024</h1>
+            <h1 class="alert">Fermeture de Noël du 23/12/24 au 03/01/25. Bonnes fêtes de fin d'année à tous.</h1>
             
             <table class='tableauouverture'>
                 <tr class='ligneouverture'>
