@@ -15,6 +15,7 @@
             $src = 'image/PictoContact.gif';
             $alt = 'un oiseau au telephone';
             $titre = 'Contact et docs.';
+            $page = 5;
             include("includes/header.php");
         ?>
         <?php include("includes/nav.php"); ?>
