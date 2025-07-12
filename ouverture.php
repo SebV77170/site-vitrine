@@ -48,14 +48,20 @@
             
             <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
 
-            <h1 style="background-color: #fd7e14; color: white; padding: 1em; text-align: center; font-size: 1.5em; border-radius: 8px;">
+            <alerte-canicule>
   🔥 Canicule : dépôts fermés lors des alertes orange (ou plus) pour la sécurité de tous. Merci pour votre compréhension.
-</h1>
+</alerte-canicule>
+
 
 
 
             
-            <h1 class="alert">Fermeture estivale du 11/08/25 au 31/08/25 inclus. Réouverture le lundi 01 Septembre 2025. Les dépôts ne reprendront que la semaine d'après, le 08 Septembre 2025. Bonnes vacances à tous !</h1>
+<alerte-estivale>
+  🌴 Fermeture estivale du 11/08/25 au 31/08/25 inclus. Réouverture le lundi 01 Septembre 2025.<br />
+  Les dépôts ne reprendront que la semaine d'après, le 08 Septembre 2025.<br />
+  Bonnes vacances à tous !
+</alerte-estivale>
+
             
             <table class='tableauouverture'>
                 <tr class='ligneouverture'>

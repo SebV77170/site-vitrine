@@ -503,6 +503,53 @@ footer a{
     margin: 0 auto;
 }
 
+alerte-canicule,
+alerte-estivale {
+  display: block;
+  padding: 2em;
+  margin: 2em auto;
+  text-align: center;
+  font-size: 5em;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.5em;
+}
+
+/* Séparation explicite */
+alerte-canicule {
+  background-color: #fd7e14;
+  color: white;
+  margin-bottom: 2.5em;
+}
+
+alerte-estivale {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 0;
+}
+
+/* Responsive tablette */
+@media screen and (max-width: 700px) {
+  alerte-canicule,
+  alerte-estivale {
+    font-size: 1.5em;
+    padding: 1.5em;
+  }
+}
+
+/* Responsive téléphone */
+@media screen and (max-width: 480px) {
+  alerte-canicule,
+  alerte-estivale {
+    font-size: 1.2em;
+    padding: 1.2em;
+    border-radius: 6px;
+  }
+}
+
+
+
 
 
 /*Pour adapter la visualisation à une plus petite fenêtre, 3 niveaux plus petits 930px et 700px et 450px pour les mobiles*/
