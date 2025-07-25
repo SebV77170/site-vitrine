@@ -84,14 +84,22 @@
                 $date = $datetimestart->format('l-d-F-Y');
                 $datefrench = explode('-', $date);
                 $semaine = $datetimestart->format('W');
-                $test = $semaine/2;
-                if(is_int($test)):
-                    $mess="Vente uniquement";
-                    $mess1="";
-                else:
-                    $mess="Vente + dépot";
-                    $mess1="Limite Dépôt 17:30";
-                endif;
+                $test = $semaine / 2;
+
+                // Exception pour le 02/08/2025 (format: Y-m-d)
+                if ($datetimestart->format('Y-m-d') === '2025-08-02') {
+                    $mess = "Vente uniquement";
+                    $mess1 = "";
+                }
+                // Sinon, logique habituelle paire/impaire
+                elseif (is_int($test)) {
+                    $mess = "Vente uniquement";
+                    $mess1 = "";
+                } else {
+                    $mess = "Vente + dépot";
+                    $mess1 = "Limite Dépôt 17:30";
+                }
+
                 
                 
                 foreach($days as $k=>$v):
