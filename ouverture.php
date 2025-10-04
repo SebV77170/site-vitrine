@@ -57,9 +57,11 @@
 
             
 <alerte-estivale>
-  🌴 Fermeture estivale du 11/08/25 au 31/08/25 inclus. Réouverture le lundi 01 Septembre 2025.<br />
-  Les dépôts ne reprendront que la semaine d'après, le 08 Septembre 2025.<br />
-  Bonnes vacances à tous !
+  <strong>📢 Reprise des dépôts</strong><br>
+  Les dépôts reprendront <strong>à partir de la semaine du 8 septembre</strong>.<br>
+  Comme d’habitude, ils auront lieu <strong>uniquement les semaines impaires</strong>.<br>
+  👉 Nouveauté : les dépôts seront désormais possibles <strong>jusqu’à 17&nbsp;h maximum</strong> chaque jour d’ouverture.<br>
+  Merci de votre compréhension et de votre fidélité.
 </alerte-estivale>
 
             
@@ -97,7 +99,7 @@
                     $mess1 = "";
                 } else {
                     $mess = "Vente + dépot";
-                    $mess1 = "Limite Dépôt 17:30";
+                    $mess1 = " - Limite Dépôt 17:00";
                 }
 
                 
@@ -120,7 +122,7 @@
                         
                             <td class="celluleouverture">'.$datefrench.'</td>
                             <td class="celluleouverture">'.$heurestart.'</td>
-                            <td class="celluleouverture">'.$heureend.' - '.$mess1.'</td>
+                            <td class="celluleouverture">'.$heureend.''.$mess1.'</td>
                             <td class="celluleouverture">'.$mess.'</td>
                             
 
