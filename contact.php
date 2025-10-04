@@ -16,8 +16,8 @@
             <h1 id="telechargement">Téléchargement de documents</h1>
             <p class="even">Cliquez sur les liens suivants pour lire les documents :</p>
             <ul>
-                <li id="statuts"><a href="mise-a-jour.php" target="_blank">Nos statuts</a></li>
-                <li id="statuts"><a href="mise-a-jour.php" target="_blank">Notre règlement intérieur</a></li>
+                <li id="statuts"><a href="documents/statuts2025.pdf" target="_blank">Nos statuts</a></li>
+                <li id="statuts"><a href="documents/ri.pdf" target="_blank">Notre règlement intérieur</a></li>
             </ul>
             
             <h2 style="color:red; text-align : center">Pour toute adhésion en vue de venir nous aider dans la gestion du local, merci de venir nous voir à celui-ci au 28 avenue Carnot.</h2>

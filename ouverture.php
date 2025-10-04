@@ -49,7 +49,7 @@
             <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
 
             <alerte-canicule>
-  🔥 Canicule : dépôts fermés lors des alertes orange (ou plus) pour la sécurité de tous. Merci pour votre compréhension.
+  Pour faciliter le tri et le rangement, le dépôt textile est limité à 2 sacs de taille raisonnable par personne et uniquement aux vêtements de saison. Merci de votre contribution ! 
 </alerte-canicule>
 
 
