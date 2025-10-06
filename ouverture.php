@@ -57,11 +57,7 @@
 
             
 <alerte-estivale>
-  <strong>📢 Reprise des dépôts</strong><br>
-  Les dépôts reprendront <strong>à partir de la semaine du 8 septembre</strong>.<br>
-  Comme d’habitude, ils auront lieu <strong>uniquement les semaines impaires</strong>.<br>
-  👉 Nouveauté : les dépôts seront désormais possibles <strong>jusqu’à 17&nbsp;h maximum</strong> chaque jour d’ouverture.<br>
-  Merci de votre compréhension et de votre fidélité.
+  Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.
 </alerte-estivale>
 
             
