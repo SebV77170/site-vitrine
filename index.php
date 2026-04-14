@@ -1,4 +1,3 @@
-<?php echo 'Hello world'; ?>
 <!DOCTYPE HTML>
 <html lang="fr-FR">
     <head>
@@ -33,32 +32,7 @@
             <img class="picto contactez" src="image/PictoContact.gif" alt="un oiseau au tel">
             <img class="picto ouverturez" src="image/PictoContact.gif" alt="un oiseau au tel">
         </div>
-         <?php
-        
-          include('connexiondb_utf8.php');
-          
-          try{
-            
-            $sql = 'SELECT id, article FROM article_accueil ORDER BY id DESC';
-            $selec = $connexion->prepare($sql);
-            $selec->execute();
-            $resultat = $selec->fetchAll(PDO::FETCH_ASSOC);
-            
          
-            
-             foreach($resultat as $article){
-              echo'<article class="actu">';
-              echo nl2br($article[article]);
-              echo'</article>';   
-             }
-            
-            
-          }
-        
-          catch(PDOException $e){
-            echo 'une erreur s\'est produite : ' .$e->getMessage();
-          }
-        ?>
        
         <footer>
             <a href="https://www.facebook.com/RessourceBrie-107609235066679/?view_public_for=107609235066679" target="_blank"><img class="facebook" src="image/pictoFacebook.png" alt="pictogramme facebook"></a>
