@@ -744,3 +744,57 @@ alerte-estivale {
     }
 }
 
+
+.opening-alert{
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.opening-alert-canicule{
+    background: #fff6d8;
+}
+
+.opening-alert-estival{
+    background: #ffe6d8;
+}
+
+.admin-panel{
+    margin: 20px 0;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.alert-form,
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.alert-form textarea,
+.login-form input,
+.create-form input{
+    font-family: inherit;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.form-actions,
+.delete-form{
+    margin-bottom: 16px;
+}
+
+.auth-error{
+    color: #b00020;
+    font-weight: bold;
+}
+
+.auth-ok{
+    color: #1f7a34;
+    font-weight: bold;
+}
