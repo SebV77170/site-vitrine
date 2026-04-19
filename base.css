@@ -752,11 +752,11 @@ alerte-estivale {
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
-.opening-alert-canicule{
+.opening-alert-rouge{
     background: #fff6d8;
 }
 
-.opening-alert-estival{
+.opening-alert-orange{
     background: #ffe6d8;
 }
 

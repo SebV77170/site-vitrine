@@ -61,8 +61,8 @@ $db->exec(
 );
 
 $defaultAlerts = [
-    'canicule' => "Pour faciliter le tri et le rangement, le dépôt textile est limité à 2 sacs de taille raisonnable par personne et uniquement aux vêtements de saison. Merci de votre contribution !",
-    'estival' => 'Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.'
+    'rouge' => "Pour faciliter le tri et le rangement, le dépôt textile est limité à 2 sacs de taille raisonnable par personne et uniquement aux vêtements de saison. Merci de votre contribution !",
+    'orange' => 'Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.'
 ];
 
 $seedStmt = $db->prepare('INSERT IGNORE INTO opening_alerts (code, message) VALUES (:code, :message)');
@@ -72,6 +72,9 @@ foreach ($defaultAlerts as $code => $message) {
         'message' => $message,
     ]);
 }
+
+$db->exec("UPDATE opening_alerts SET code = 'rouge' WHERE code = 'canicule'");
+$db->exec("UPDATE opening_alerts SET code = 'orange' WHERE code = 'estival'");
 
 if (is_admin_logged() && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
@@ -115,13 +118,22 @@ if (is_admin_logged() && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIELD(code, "canicule", "estival"), id ASC')->fetchAll();
+$alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIELD(code, "rouge", "orange"), id ASC')->fetchAll();
 ?>
 
     <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
 
     <?php foreach ($alerts as $alert): ?>
-        <div class="opening-alert opening-alert-<?= htmlspecialchars((string) $alert['code']) ?>">
+        <?php
+            $alertClass = (string) $alert['code'];
+            if ($alertClass === 'canicule') {
+                $alertClass = 'rouge';
+            }
+            if ($alertClass === 'estival') {
+                $alertClass = 'orange';
+            }
+        ?>
+        <div class="opening-alert opening-alert-<?= htmlspecialchars($alertClass) ?>">
             <?= nl2br(htmlspecialchars((string) $alert['message'])) ?>
         </div>
     <?php endforeach; ?>
@@ -151,7 +163,7 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
             <form method="post" class="alert-form create-form">
                 <h3>Ajouter une alerte</h3>
                 <input type="hidden" name="action" value="create">
-                <label for="code">Code (ex: canicule, estival)</label>
+                <label for="code">Code (ex: rouge, orange)</label>
                 <input id="code" name="code" type="text" required>
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="3" required></textarea>
