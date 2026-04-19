@@ -90,6 +90,6 @@
         </article>
         <?php
             $linesupp = NULL;
-            include("footer.php");
+            include("includes/footer.php");
             ?>
 </html>

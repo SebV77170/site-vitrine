@@ -61,6 +61,6 @@ include('includes/head.php');
 
 <?php
 $linesupp = null;
-include('footer.php');
+include('includes/footer.php');
 ?>
 </html>

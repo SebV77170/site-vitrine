@@ -46,6 +46,6 @@
             <a class="copyright" href="https://fr.dreamstime.com/caissière-détail-femme-à-checkout-contre-vendeuse-supermarché-l-appartement-intérieur-achat-uniforme-m-image141145436" target="blank">141145436</a>
             © <a class="copyright" href="https://fr.dreamstime.com/microvone_info" target="blank">Microvone</a> | <a class="copyright" href="https://fr.dreamstime.com/" target="blank">Dreamstime.com</a>
             </p>';
-            include("footer.php");
+            include("includes/footer.php");
             ?>
 </html>
