@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navforum px-2">
+<nav class="navbar navbar-expand-lg navforum px-2 mb-3">
     <div class="container-fluid">
 
         <!-- Bouton hamburger -->
