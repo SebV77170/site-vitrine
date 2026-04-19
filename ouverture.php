@@ -317,6 +317,6 @@ foreach ($results as $v) {
 </script>
 <?php
 $linesupp = NULL;
-include('footer.php');
+include('includes/footer.php');
 ?>
 </html>
