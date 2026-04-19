@@ -164,11 +164,11 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                         <button type="button" data-cmd="bold"><strong>B</strong></button>
                         <button type="button" data-cmd="italic"><em>I</em></button>
                         <button type="button" data-cmd="underline"><u>U</u></button>
-                        <button type="button" data-cmd="fontSize" data-value="4">A+</button>
-                        <button type="button" data-cmd="fontSize" data-value="2">A-</button>
+                        <button type="button" data-cmd="increaseFontSize">A+</button>
+                        <button type="button" data-cmd="decreaseFontSize">A-</button>
                     </div>
                     <div class="rte-editor" contenteditable="true"><?= (string) $alert['message'] ?></div>
-                    <textarea name="message" class="rte-source" hidden required><?= htmlspecialchars((string) $alert['message']) ?></textarea>
+                    <textarea name="message" class="rte-source" hidden><?= htmlspecialchars((string) $alert['message']) ?></textarea>
                     <div class="form-actions">
                         <button type="submit">Enregistrer</button>
                     </div>
@@ -194,11 +194,11 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                     <button type="button" data-cmd="bold"><strong>B</strong></button>
                     <button type="button" data-cmd="italic"><em>I</em></button>
                     <button type="button" data-cmd="underline"><u>U</u></button>
-                    <button type="button" data-cmd="fontSize" data-value="4">A+</button>
-                    <button type="button" data-cmd="fontSize" data-value="2">A-</button>
+                    <button type="button" data-cmd="increaseFontSize">A+</button>
+                    <button type="button" data-cmd="decreaseFontSize">A-</button>
                 </div>
                 <div id="message" class="rte-editor" contenteditable="true"></div>
-                <textarea name="message" class="rte-source" hidden required></textarea>
+                <textarea name="message" class="rte-source" hidden></textarea>
                 <button type="submit">Ajouter / mettre à jour</button>
             </form>
         </section>
@@ -291,15 +291,25 @@ include('footer.php');
         form.querySelectorAll('.rte-toolbar button').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 const cmd = btn.getAttribute('data-cmd');
-                const value = btn.getAttribute('data-value') || null;
                 editor.focus();
-                document.execCommand(cmd, false, value);
+                if (cmd === 'increaseFontSize') {
+                    document.execCommand('fontSize', false, '5');
+                    return;
+                }
+                if (cmd === 'decreaseFontSize') {
+                    document.execCommand('fontSize', false, '2');
+                    return;
+                }
+                document.execCommand(cmd, false, null);
             });
         });
 
-        form.addEventListener('submit', function () {
+        const sync = function () {
             source.value = editor.innerHTML.trim();
-        });
+        };
+
+        editor.addEventListener('input', sync);
+        form.addEventListener('submit', sync);
     }
 
     document.querySelectorAll('form.alert-form').forEach(bindEditor);
