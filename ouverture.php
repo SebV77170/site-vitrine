@@ -73,15 +73,14 @@ $db->exec("DELETE FROM opening_alerts WHERE code = 'canicule'");
 $db->exec("DELETE FROM opening_alerts WHERE code = 'estival'");
 
 $cleanupStmt = $db->prepare('DELETE FROM opening_alerts WHERE code = :code AND id <> (SELECT keep_id FROM (SELECT MAX(id) as keep_id FROM opening_alerts WHERE code = :code) as tmp)');
-$findStmt = $db->prepare('SELECT id FROM opening_alerts WHERE code = :code ORDER BY id DESC LIMIT 1');
-$insertStmt = $db->prepare('INSERT INTO opening_alerts (code, message) VALUES (:code, :message)');
-foreach ($defaultAlerts as $code => $message) {
+foreach ($allowedAlertCodes as $code) {
     $cleanupStmt->execute(['code' => $code]);
+}
 
-    $findStmt->execute(['code' => $code]);
-    $existing = $findStmt->fetch();
-
-    if (!$existing) {
+$hasAlerts = (int) $db->query('SELECT COUNT(*) FROM opening_alerts')->fetchColumn() > 0;
+if (!$hasAlerts) {
+    $insertStmt = $db->prepare('INSERT INTO opening_alerts (code, message) VALUES (:code, :message)');
+    foreach ($defaultAlerts as $code => $message) {
         $insertStmt->execute([
             'code' => $code,
             'message' => $message,
