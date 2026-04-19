@@ -61,9 +61,7 @@ $db->exec(
 );
 
 $defaultAlerts = [
-    'rouge' => "Pour faciliter le tri et le rangement, le dépôt textile est limité à 2 sacs de taille raisonnable par personne et uniquement aux vêtements de saison. Merci de votre contribution !",
-    'orange' => 'Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.',
-    'verte' => 'Bienvenue ! Le local est ouvert aux horaires habituels.'
+    
 ];
 $allowedAlertCodes = array_keys($defaultAlerts);
 
