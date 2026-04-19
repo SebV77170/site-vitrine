@@ -62,8 +62,10 @@ $db->exec(
 
 $defaultAlerts = [
     'rouge' => "Pour faciliter le tri et le rangement, le dépôt textile est limité à 2 sacs de taille raisonnable par personne et uniquement aux vêtements de saison. Merci de votre contribution !",
-    'orange' => 'Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.'
+    'orange' => 'Attention, nous serons fermés le 1er Novembre 2025. Merci de votre compréhension.',
+    'verte' => 'Bienvenue ! Le local est ouvert aux horaires habituels.'
 ];
+$allowedAlertCodes = array_keys($defaultAlerts);
 
 $db->exec("UPDATE opening_alerts SET code = 'rouge' WHERE code = 'canicule' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'rouge' LIMIT 1) as t)");
 $db->exec("UPDATE opening_alerts SET code = 'orange' WHERE code = 'estival' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'orange' LIMIT 1) as t)");
@@ -104,10 +106,10 @@ if (is_admin_logged() && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($action === 'create') {
-        $code = normalize_pseudo((string) ($_POST['code'] ?? ''));
+        $code = (string) ($_POST['code'] ?? '');
         $message = trim((string) ($_POST['message'] ?? ''));
 
-        if ($code !== '' && $message !== '') {
+        if (in_array($code, $allowedAlertCodes, true) && $message !== '') {
             $stmt = $db->prepare('INSERT INTO opening_alerts (code, message) VALUES (:code, :message) ON DUPLICATE KEY UPDATE message = VALUES(message)');
             $stmt->execute([
                 'code' => $code,
@@ -129,7 +131,7 @@ if (is_admin_logged() && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIELD(code, "rouge", "orange"), id ASC')->fetchAll();
+$alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIELD(code, "rouge", "orange", "verte"), id ASC')->fetchAll();
 ?>
 
     <h1>Les jours d'ouvertures sur les 2 prochains mois.</h1>
@@ -174,8 +176,12 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
             <form method="post" class="alert-form create-form">
                 <h3>Ajouter une alerte</h3>
                 <input type="hidden" name="action" value="create">
-                <label for="code">Code (ex: rouge, orange)</label>
-                <input id="code" name="code" type="text" required>
+                <label for="code">Alerte</label>
+                <select id="code" name="code" required>
+                    <option value="rouge">Rouge</option>
+                    <option value="orange">Orange</option>
+                    <option value="verte">Verte</option>
+                </select>
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="3" required></textarea>
                 <button type="submit">Ajouter / mettre à jour</button>
