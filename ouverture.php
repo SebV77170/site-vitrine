@@ -146,7 +146,7 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
             }
         ?>
         <div class="opening-alert opening-alert-<?= htmlspecialchars($alertClass) ?>">
-            <?= nl2br(htmlspecialchars((string) $alert['message'])) ?>
+            <?= $alert['message'] ?>
         </div>
     <?php endforeach; ?>
 
@@ -160,7 +160,15 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="id" value="<?= (int) $alert['id'] ?>">
                     <label>Code : <strong><?= htmlspecialchars((string) $alert['code']) ?></strong></label>
-                    <textarea name="message" rows="3" required><?= htmlspecialchars((string) $alert['message']) ?></textarea>
+                    <div class="rte-toolbar">
+                        <button type="button" data-cmd="bold"><strong>B</strong></button>
+                        <button type="button" data-cmd="italic"><em>I</em></button>
+                        <button type="button" data-cmd="underline"><u>U</u></button>
+                        <button type="button" data-cmd="fontSize" data-value="4">A+</button>
+                        <button type="button" data-cmd="fontSize" data-value="2">A-</button>
+                    </div>
+                    <div class="rte-editor" contenteditable="true"><?= (string) $alert['message'] ?></div>
+                    <textarea name="message" class="rte-source" hidden required><?= htmlspecialchars((string) $alert['message']) ?></textarea>
                     <div class="form-actions">
                         <button type="submit">Enregistrer</button>
                     </div>
@@ -182,7 +190,15 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                     <option value="verte">Verte</option>
                 </select>
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="3" required></textarea>
+                <div class="rte-toolbar">
+                    <button type="button" data-cmd="bold"><strong>B</strong></button>
+                    <button type="button" data-cmd="italic"><em>I</em></button>
+                    <button type="button" data-cmd="underline"><u>U</u></button>
+                    <button type="button" data-cmd="fontSize" data-value="4">A+</button>
+                    <button type="button" data-cmd="fontSize" data-value="2">A-</button>
+                </div>
+                <div id="message" class="rte-editor" contenteditable="true"></div>
+                <textarea name="message" class="rte-source" hidden required></textarea>
                 <button type="submit">Ajouter / mettre à jour</button>
             </form>
         </section>
@@ -265,5 +281,29 @@ foreach ($results as $v) {
 $linesupp = NULL;
 include('footer.php');
 ?>
+<script>
+(function () {
+    function bindEditor(form) {
+        const editor = form.querySelector('.rte-editor');
+        const source = form.querySelector('.rte-source');
+        if (!editor || !source) return;
+
+        form.querySelectorAll('.rte-toolbar button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const cmd = btn.getAttribute('data-cmd');
+                const value = btn.getAttribute('data-value') || null;
+                editor.focus();
+                document.execCommand(cmd, false, value);
+            });
+        });
+
+        form.addEventListener('submit', function () {
+            source.value = editor.innerHTML.trim();
+        });
+    }
+
+    document.querySelectorAll('form.alert-form').forEach(bindEditor);
+})();
+</script>
 </body>
 </html>
