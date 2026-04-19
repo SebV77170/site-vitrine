@@ -2,7 +2,7 @@
     <div class="container-fluid">
 
         <!-- Bouton hamburger -->
-        <button class="navbar-toggler custom-toggler" type="button"
+        <button class="navbar-toggler custom-toggler mb-3" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#menuPrincipal"
                 aria-controls="menuPrincipal"
