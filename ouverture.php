@@ -166,6 +166,7 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                         <button type="button" data-cmd="underline"><u>U</u></button>
                         <button type="button" data-cmd="increaseFontSize">A+</button>
                         <button type="button" data-cmd="decreaseFontSize">A-</button>
+                        <button type="button" data-cmd="resetFontSize">A=</button>
                     </div>
                     <div class="rte-editor" contenteditable="true"><?= (string) $alert['message'] ?></div>
                     <textarea name="message" class="rte-source" hidden><?= htmlspecialchars((string) $alert['message']) ?></textarea>
@@ -196,6 +197,7 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
                     <button type="button" data-cmd="underline"><u>U</u></button>
                     <button type="button" data-cmd="increaseFontSize">A+</button>
                     <button type="button" data-cmd="decreaseFontSize">A-</button>
+                    <button type="button" data-cmd="resetFontSize">A=</button>
                 </div>
                 <div id="message" class="rte-editor" contenteditable="true"></div>
                 <textarea name="message" class="rte-source" hidden></textarea>
@@ -298,6 +300,10 @@ include('footer.php');
                 }
                 if (cmd === 'decreaseFontSize') {
                     document.execCommand('fontSize', false, '2');
+                    return;
+                }
+                if (cmd === 'resetFontSize') {
+                    document.execCommand('fontSize', false, '3');
                     return;
                 }
                 document.execCommand(cmd, false, null);
