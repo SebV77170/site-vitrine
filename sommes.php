@@ -92,5 +92,4 @@
             $linesupp = NULL;
             include("footer.php");
             ?>
-    </body>
 </html>

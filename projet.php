@@ -114,5 +114,4 @@ Si vous avez des connaissances de subventions en lien avec ce type de projet, nâ
             $linesupp = NULL;
             include("footer.php");
             ?>
-    </body>
 </html>

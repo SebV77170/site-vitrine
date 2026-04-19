@@ -2,8 +2,10 @@
         <title><?php $titre ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <?php
             $baseCssVersion = file_exists(__DIR__ . '/../base.css') ? filemtime(__DIR__ . '/../base.css') : time();
+            $navCssVersion = file_exists(__DIR__ . '/../nav.css') ? filemtime(__DIR__ . '/../nav.css') : time();
             $engine1CssVersion = file_exists(__DIR__ . '/../engine1/style.css') ? filemtime(__DIR__ . '/../engine1/style.css') : time();
             $engine2CssVersion = file_exists(__DIR__ . '/../engine2/style.css') ? filemtime(__DIR__ . '/../engine2/style.css') : time();
             $engine3CssVersion = file_exists(__DIR__ . '/../engine3/style.css') ? filemtime(__DIR__ . '/../engine3/style.css') : time();
@@ -11,6 +13,7 @@
             $engine5CssVersion = file_exists(__DIR__ . '/../engine5/style.css') ? filemtime(__DIR__ . '/../engine5/style.css') : time();
             $engine6CssVersion = file_exists(__DIR__ . '/../engine6/style.css') ? filemtime(__DIR__ . '/../engine6/style.css') : time();
         ?>
+        <link rel="stylesheet" href="nav.css?v=<?= $navCssVersion ?>">
         <link rel="stylesheet" href="base.css?v=<?= $baseCssVersion ?>">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 

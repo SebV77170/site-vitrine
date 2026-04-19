@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 <footer>
     <a href="https://www.facebook.com/RessourceBrie-107609235066679/?view_public_for=107609235066679" target="_blank"><img class="facebook" src="image/pictoFacebook.png" alt="pictogramme facebook"></a>
     <p>« Un bon déchet reste cependant un déchet que l'on ne produit pas » ;-)</p>

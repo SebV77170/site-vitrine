@@ -48,5 +48,4 @@
             </p>';
             include("footer.php");
             ?>
-    </body>
 </html>

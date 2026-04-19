@@ -33,57 +33,10 @@ h1{
     padding-top: 50px;
 }
 
-/*Menu avec les boutons en float left*/
-
-nav{
-    width: 100%;
-    height: 80px;
-}
-nav ul{
-    margin: 0px;
-    padding: 0px;
-}
-nav li{
-    list-style-type: none;
-    float: left;
-    width: 160px;
-    height: 50px;
-    box-shadow: 0px 0px 5px black;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 5px;
-    margin: 10px 10px;
-}
-nav a{
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-}
 
 
 
-/* Pour faire en sorte que l'écriture dans les boutons soit centrée et la couleur des boutons*/
-.bleu{
-    background-color: #23A3D9;
-}
-.vert{
-    background-color: #26A648;
-}
-#sommes{
-    line-height: 50px;
-}
-#ressourcerie{
-    line-height: 25px;
-}
-#projet{
-    line-height: 25px;
-    }
-#evenement{
-    line-height: 50px;
-}
-#contact{
-    line-height: 25px;
-}
+
 
 /*Pour faire changer la couleur des boutons lors du survol de la souris*/
 

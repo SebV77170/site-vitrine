@@ -69,5 +69,4 @@ if ($recaptcha->success && isset($message)) {
             $linesupp = NULL;
             include("footer.php");
             ?>
-    </body>
 </html>

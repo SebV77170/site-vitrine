@@ -277,10 +277,6 @@ foreach ($results as $v) {
     </p>
 
 </article>
-<?php
-$linesupp = NULL;
-include('footer.php');
-?>
 <script>
 (function () {
     function bindEditor(form) {
@@ -319,5 +315,8 @@ include('footer.php');
     document.querySelectorAll('form.alert-form').forEach(bindEditor);
 })();
 </script>
-</body>
+<?php
+$linesupp = NULL;
+include('footer.php');
+?>
 </html>

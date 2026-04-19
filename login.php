@@ -63,5 +63,4 @@ include('includes/head.php');
 $linesupp = null;
 include('footer.php');
 ?>
-</body>
 </html>

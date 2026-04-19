@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.navforum {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  width: 100%;
+  background-color: #FBF3E4;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Boutons du menu */
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  min-height: 56px;
+  padding: 10px 16px !important;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white !important;
+  line-height: 1.2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  white-space: normal;
+}
+
+/* Couleur par défaut */
+.inactive-link {
+  background-color: #23A3D9;
+}
+
+/* Lien actif */
+.active-link {
+  background-color: #26A648;
+}
+
+/* Hover */
+.inactive-link:hover {
+  background-color: #26A648;
+}
+
+.active-link:hover {
+  background-color: #23A3D9;
+}
+
+/* Bouton hamburger */
+.custom-toggler {
+  border: 1px solid #23A3D9;
+  background: white;
+  padding: 0.35rem 0.55rem;
+}
+
+/* Icône hamburger personnalisée */
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: #23A3D9;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #23A3D9;
+}
+
+.custom-toggler .navbar-toggler-icon::before {
+  top: -7px;
+}
+
+.custom-toggler .navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* Alignement */
+.navforum .navbar-nav {
+  align-items: center;
+}
+
+.navforum .nav-item {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .navforum {
+    padding: 8px 0;
+  }
+
+  .menu-btn {
+    width: 100%;
+    min-width: unset;
+    min-height: 48px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-btn {
+    font-size: 0.95rem;
+    padding: 10px 12px !important;
+  }
+}
