@@ -229,12 +229,21 @@ foreach ($results as $v) {
     $datefrench = explode('-', $date);
     $semaine = $datetimestart->format('W');
     $test = $semaine / 2;
-    $mess = $v['name'];
-   if ($mess === "Vente+Dépôt") {
-        $mess1 = ' - Limite Dépôt 17:00';
-    } else {
-        $mess1 = "";
-    }
+  $mess = $v['name'];
+
+$mess_normalized = strtolower($mess);
+
+$mess_normalized = str_replace(
+    ['é', 'è', 'ê', 'ë', 'É', 'È', 'Ê', 'Ë', 'ô', 'ö', 'Ô', 'Ö'],
+    ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'o', 'o', 'o', 'o'],
+    $mess_normalized
+);
+
+if (stripos($mess_normalized, 'depot') !== false) {
+    $mess1 = ' - Limite Dépôt 17:00';
+} else {
+    $mess1 = "";
+}
 
     foreach ($days as $k => $dayName) {
     if ($k == $datefrench[0]) {
