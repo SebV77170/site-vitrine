@@ -45,7 +45,14 @@ $days = [
 
 $datetoday = new DateTime('now');
 $datein2months = new DateTime('now + 2 months');
-$sql = 'SELECT start, end FROM events WHERE cat_creneau = 0 AND public = 1 ORDER by start ASC';
+$sql = "
+SELECT start, end, name 
+FROM events 
+WHERE cat_creneau = 0 
+  AND public = 1
+  AND start BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 2 MONTH)
+ORDER BY start ASC
+";
 $sth = $db->query($sql);
 $results = $sth->fetchAll();
 
@@ -213,6 +220,7 @@ $alerts = $db->query('SELECT id, code, message FROM opening_alerts ORDER BY FIEL
         </tr>
 
 <?php
+
 foreach ($results as $v) {
     $datetimestart = new DateTime('' . $v['start'] . '');
     $datetimeend = new DateTime('' . $v['end'] . '');
@@ -221,28 +229,24 @@ foreach ($results as $v) {
     $datefrench = explode('-', $date);
     $semaine = $datetimestart->format('W');
     $test = $semaine / 2;
-
-    if ($datetimestart->format('Y-m-d') === '2025-08-02') {
-        $mess = 'Vente uniquement';
-        $mess1 = '';
-    } elseif (is_int($test)) {
-        $mess = 'Vente uniquement';
-        $mess1 = '';
-    } else {
-        $mess = 'Vente + dépot';
+    $mess = $v['name'];
+   if ($mess === "Vente+Dépôt") {
         $mess1 = ' - Limite Dépôt 17:00';
+    } else {
+        $mess1 = "";
     }
 
-    foreach ($days as $k => $v) {
-        if ($k == $datefrench[0]) {
-            $datefrench[0] = $v;
-        }
+    foreach ($days as $k => $dayName) {
+    if ($k == $datefrench[0]) {
+        $datefrench[0] = $dayName;
     }
-    foreach ($months as $k => $v) {
-        if ($k == $datefrench[2]) {
-            $datefrench[2] = $v;
-        }
+}
+
+foreach ($months as $k => $monthName) {
+    if ($k == $datefrench[2]) {
+        $datefrench[2] = $monthName;
     }
+}
     $datefrench = implode(' ', $datefrench);
     $heurestart = $datetimestart->format('G:i');
     $heureend = $datetimeend->format('G:i');
