@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE HTML>
 <html lang="fr-FR">
 <?php
@@ -67,10 +68,8 @@ $db->exec(
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8'
 );
 
-$defaultAlerts = [
-    
-];
-$allowedAlertCodes = array_keys($defaultAlerts);
+$defaultAlerts = [];
+$allowedAlertCodes = ['rouge', 'orange', 'verte'];
 
 $db->exec("UPDATE opening_alerts SET code = 'rouge' WHERE code = 'canicule' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'rouge' LIMIT 1) as t)");
 $db->exec("UPDATE opening_alerts SET code = 'orange' WHERE code = 'estival' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'orange' LIMIT 1) as t)");
