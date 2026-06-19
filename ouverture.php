@@ -238,7 +238,8 @@ $mess_normalized = str_replace(
 );
 
 if (stripos($mess_normalized, 'depot') !== false) {
-    $mess1 = ' - Limite Dépôt 17:00';
+    $limiteDepot = (clone $datetimeend)->modify('-1 hour')->format('G:i');
+    $mess1 = ' - Limite Dépôt ' . $limiteDepot;
 } else {
     $mess1 = "";
 }
