@@ -63,23 +63,22 @@ $db->exec(
         code VARCHAR(120) NOT NULL,
         message TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        UNIQUE KEY uniq_opening_alert_code (code)
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8'
 );
 
 $defaultAlerts = [];
 $allowedAlertCodes = ['rouge', 'orange', 'verte'];
 
+$uniqueCodeIndex = $db->query("SHOW INDEX FROM opening_alerts WHERE Key_name = 'uniq_opening_alert_code'")->fetch();
+if ($uniqueCodeIndex) {
+    $db->exec('ALTER TABLE opening_alerts DROP INDEX uniq_opening_alert_code');
+}
+
 $db->exec("UPDATE opening_alerts SET code = 'rouge' WHERE code = 'canicule' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'rouge' LIMIT 1) as t)");
 $db->exec("UPDATE opening_alerts SET code = 'orange' WHERE code = 'estival' AND NOT EXISTS (SELECT 1 FROM (SELECT id FROM opening_alerts WHERE code = 'orange' LIMIT 1) as t)");
 $db->exec("DELETE FROM opening_alerts WHERE code = 'canicule'");
 $db->exec("DELETE FROM opening_alerts WHERE code = 'estival'");
-
-$cleanupStmt = $db->prepare('DELETE FROM opening_alerts WHERE code = :code AND id <> (SELECT keep_id FROM (SELECT MAX(id) as keep_id FROM opening_alerts WHERE code = :code) as tmp)');
-foreach ($allowedAlertCodes as $code) {
-    $cleanupStmt->execute(['code' => $code]);
-}
 
 $hasAlerts = (int) $db->query('SELECT COUNT(*) FROM opening_alerts')->fetchColumn() > 0;
 if (!$hasAlerts) {
@@ -113,7 +112,7 @@ if (is_admin_logged() && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = trim((string) ($_POST['message'] ?? ''));
 
         if (in_array($code, $allowedAlertCodes, true) && $message !== '') {
-            $stmt = $db->prepare('INSERT INTO opening_alerts (code, message) VALUES (:code, :message) ON DUPLICATE KEY UPDATE message = VALUES(message)');
+            $stmt = $db->prepare('INSERT INTO opening_alerts (code, message) VALUES (:code, :message)');
             $stmt->execute([
                 'code' => $code,
                 'message' => $message,
